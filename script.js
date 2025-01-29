@@ -157,11 +157,3 @@ const main = () => {
 };
 
 main();
-
-// Step 1 : Creating the standard Grid and populate the cells with cards or empty divs
-// Step 2 : Beware of the cardCells which are being created
-// Step 3 : Start animation of the cells
-// Step 3.1 : Find the cells from where to where the line needs to be animated
-// Step 3.2 : Calculate the cell (x,y) position and create a line div
-// Step 3.3 : After the line div is created start animating its height or width accordingly
-// Step 3.4 When the animation is completed remove the hover classes and line divs

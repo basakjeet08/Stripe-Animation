@@ -2,26 +2,25 @@
 @import "./gradients.css";
 
 :root {
-  --primary-color: #7979fe;
   --background: #1c1f22;
   --onBackground: whitesmoke;
+  --card-color: #282b2e;
+  --border-color: #494848;
 }
 
 * {
   padding: 0;
   margin: 0;
   box-sizing: border-box;
-  transition: all 0.3s;
+  transition: all 0.5s;
 }
 
 body {
   height: 100vh;
 
   display: flex;
-  flex-direction: column;
   align-items: center;
   justify-content: center;
-  gap: 16px;
 
   background: var(--background);
   color: var(--onBackground);
@@ -45,42 +44,40 @@ body {
   justify-content: center;
 
   border-radius: 12px;
-  border: 2px solid rgb(43, 42, 42);
+  border: 1px solid var(--border-color);
 
-  background-color: var(--background);
-  z-index: 10;
+  z-index: 1;
 }
 
 .card:hover,
 .card-hover {
   transform: scale(1.2);
-  background-color: var(--onBackground);
+  background-color: var(--card-color);
   border: 1px solid transparent;
 }
 
 .hidden-text {
+  position: absolute;
+  bottom: 0px;
   visibility: hidden;
-  transform: scale(0.6);
   font-size: 10px;
-  color: var(--background);
 }
 
 .card:hover > .hidden-text,
 .card-hover > .hidden-text {
   visibility: visible;
-  transform: scale(1);
+  transform: translateY(-6px);
 }
 
 .line {
   position: absolute;
-  height: 2px;
-  width: 2px;
-  transition: all 0.5s ease;
+  height: 1px;
+  width: 1px;
 }
 
 @keyframes growLine-X {
   0% {
-    width: 2px;
+    width: 1px;
   }
   40% {
     width: 250px;
@@ -93,7 +90,7 @@ body {
 
 @keyframes growLine-Y {
   0% {
-    height: 2px;
+    height: 1px;
   }
 
   40% {
