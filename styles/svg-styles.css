@@ -1,0 +1,29 @@
+svg {
+  position: absolute;
+  fill: none;
+  pointer-events: none;
+}
+
+.path {
+  stroke: red;
+  stroke-width: 2px;
+  animation: dash 3s ease-in-out;
+}
+
+@keyframes dash {
+  0% {
+    stroke-dashoffset: 100%;
+  }
+
+  70% {
+    stroke-dashoffset: 0;
+  }
+
+  80% {
+    stroke-dashoffset: 0;
+  }
+
+  100% {
+    stroke-dashoffset: -100%;
+  }
+}

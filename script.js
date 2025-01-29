@@ -53,19 +53,45 @@ const populateGrid = (gridMap) => {
   return cells;
 };
 
-// This function creates a Path
-const createPath = (fromCell, toCell) => {
-  // Get center points
+const createSvg = (fromCell, toCell) => {
+  // Get (x , y) Coordinates for the given cells
   const x1 = fromCell.offsetLeft + fromCell.offsetWidth / 2;
   const y1 = fromCell.offsetTop + fromCell.offsetHeight / 2;
   const x2 = toCell.offsetLeft + toCell.offsetWidth / 2;
   const y2 = toCell.offsetTop + toCell.offsetHeight / 2;
 
-  // Create a path
+  // Top left Corner
+  const xMin = Math.min(x1, x2);
+  const yMin = Math.min(y1, y2);
+
+  // Bottom Right Corner
+  const xMax = Math.max(x1, x2);
+  const yMax = Math.max(y1, y2);
+
+  // Height and Width
+  const height = yMax - yMin;
+  const width = xMax - xMin;
+
+  // Creating the Path
   const path = document.createElementNS("http://www.w3.org/2000/svg", "path");
-  const pathData = `M ${x1} ${y1} L ${x2} ${y2}`;
+
+  let pathData;
+  if (xMin == xMax || yMin == yMax) {
+    pathData = `M ${xMin} ${yMin} L ${xMax} ${yMax}`;
+  } else {
+    pathData = `M ${xMin} ${yMin} 
+        H ${xMin + width - 24}
+        A 24 24 0 0 1 ${xMin + width} ${yMin + 24}
+        V ${yMin + height}
+      `;
+  }
   path.setAttribute("d", pathData);
   path.classList.add("path");
+
+  const length = path.getTotalLength() * 2;
+  path.style.strokeDasharray = length;
+  path.style.strokeDashoffset = length;
+
   svg.appendChild(path);
 
   return path;
@@ -77,7 +103,7 @@ const animatePath = (fromIndex, toIndex) => {
 
   const fromCell = gridCells[fromIndex];
   const toCell = gridCells[toIndex];
-  const path = createPath(fromCell, toCell);
+  const path = createSvg(fromCell, toCell);
 
   const ANIMATION_TIME = 3000;
 
@@ -118,9 +144,9 @@ const main = () => {
   gridCells = populateGrid(gridMap);
 
   // Animations
-  startAnimation({ first: [1, 2], second: [4, 13], startTime: 1000 });
-  startAnimation({ first: [3, 12], second: [8, 9], startTime: 5000 });
-  startAnimation({ first: [13, 14], second: [7, 15], startTime: 9000 });
+  startAnimation({ first: [8, 9], second: [6, 12], startTime: 1000 });
+  startAnimation({ first: [13, 14], second: [8, 10], startTime: 5000 });
+  startAnimation({ first: [1, 5], second: [3, 12], startTime: 9000 });
 };
 
 main();

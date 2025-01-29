@@ -1,4 +1,5 @@
 @import "./shapes-styles.css";
+@import "./svg-styles.css";
 
 :root {
   --background: #1c1f22;
@@ -67,36 +68,4 @@ body {
 .card-hover > .hidden-text {
   visibility: visible;
   transform: translateY(-6px);
-}
-
-svg {
-  position: absolute;
-  fill: none;
-  pointer-events: none;
-}
-
-.path {
-  stroke: red;
-  stroke-width: 2px;
-  stroke-dasharray: 280;
-  stroke-dashoffset: 280;
-  animation: dash 3s ease-in-out;
-}
-
-@keyframes dash {
-  0% {
-    stroke-dashoffset: 280;
-  }
-
-  50% {
-    stroke-dashoffset: 0;
-  }
-
-  70% {
-    stroke-dashoffset: 0;
-  }
-
-  100% {
-    stroke-dashoffset: -280;
-  }
 }
