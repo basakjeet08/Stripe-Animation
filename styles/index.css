@@ -27,6 +27,7 @@ body {
 }
 
 .container {
+  position: relative;
   height: 500px;
   width: 500px;
 
@@ -73,6 +74,39 @@ body {
   position: absolute;
   height: 1px;
   width: 1px;
+}
+
+svg {
+  position: absolute;
+  height: 500px;
+  width: 500px;
+  pointer-events: none;
+}
+
+.path {
+  stroke: red;
+  stroke-width: 2px;
+  stroke-dasharray: 280;
+  stroke-dashoffset: 280;
+  animation: dash 3s ease-in-out;
+}
+
+@keyframes dash {
+  0% {
+    stroke-dashoffset: 280;
+  }
+
+  50% {
+    stroke-dashoffset: 0;
+  }
+
+  70% {
+    stroke-dashoffset: 0;
+  }
+
+  100% {
+    stroke-dashoffset: -280;
+  }
 }
 
 @keyframes growLine-X {

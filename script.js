@@ -134,12 +134,11 @@ const startAnimation = ({ first, second, startTime }) => {
   setTimeout(() => {
     // These two animations are animated together
     const animate = () => {
-      animateLine(first[0], first[1]);
+      animatePath(first[0], first[1]);
 
       setTimeout(() => {
-        animateLine(second[0], second[1]);
+        animatePath(second[0], second[1]);
       }, 1000);
-      // animateLine(second[0], second[1]);
     };
 
     animate();
@@ -157,3 +156,46 @@ const main = () => {
 };
 
 main();
+
+const svg = document.querySelector("svg");
+const createPath = (fromCell, toCell) => {
+  // Get center points
+  const x1 = fromCell.offsetLeft + fromCell.offsetWidth / 2;
+  const y1 = fromCell.offsetTop + fromCell.offsetHeight / 2;
+  const x2 = toCell.offsetLeft + toCell.offsetWidth / 2;
+  const y2 = toCell.offsetTop + toCell.offsetHeight / 2;
+
+  // Create a path
+  const path = document.createElementNS("http://www.w3.org/2000/svg", "path");
+  const pathData = `M ${x1} ${y1} L ${x2} ${y2}`;
+  path.setAttribute("d", pathData);
+  path.classList.add("path");
+  svg.appendChild(path);
+
+  return path;
+};
+
+const animatePath = (fromIndex, toIndex) => {
+  if (!gridCells[fromIndex] || !gridCells[toIndex]) return;
+
+  const fromCell = gridCells[fromIndex];
+  const toCell = gridCells[toIndex];
+  const path = createPath(fromCell, toCell);
+
+  const ANIMATION_TIME = 3000;
+
+  // Animation Start (0%)
+  fromCell.classList.add("card-hover");
+
+  // Animation Middle (25%)
+  setTimeout(() => {
+    toCell.classList.add("card-hover");
+  }, ANIMATION_TIME * 0.25);
+
+  // Animation End (100%)
+  setTimeout(() => {
+    fromCell.classList.remove("card-hover");
+    toCell.classList.remove("card-hover");
+    svg.removeChild(path);
+  }, ANIMATION_TIME);
+};
