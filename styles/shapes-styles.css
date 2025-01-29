@@ -1,0 +1,45 @@
+.shape {
+  height: 32px;
+  width: 32px;
+  border: 2px solid rgb(43, 42, 42);
+}
+
+/* Rectangle */
+.rectangle {
+  /* Default Style is rectangle too */
+  height: 32px;
+  width: 32px;
+  border-radius: 4px;
+}
+
+.card:hover > .rectangle,
+.card-hover > .rectangle {
+  background: linear-gradient(to right, #ff4b2b, #ff416c);
+  border: 1px solid transparent;
+  transform: scale(0.6);
+}
+
+/* Circle */
+.circle {
+  border-radius: 50%;
+}
+
+.card:hover > .circle,
+.card-hover > .circle {
+  background: linear-gradient(to right, #0acffe, #495aff);
+  border: 1px solid transparent;
+  transform: scale(0.6);
+}
+
+/* Diamond */
+.diamond {
+  transform: rotate(45deg);
+  border-radius: 4px;
+}
+
+.card:hover > .diamond,
+.card-hover > .diamond {
+  background: linear-gradient(to right, #ff758c, #ff7eb3);
+  border: 1px solid transparent;
+  transform: scale(0.6) rotate(45deg);
+}

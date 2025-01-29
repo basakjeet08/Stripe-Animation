@@ -1,0 +1,63 @@
+.gradient-x-1 {
+  background: linear-gradient(to right, #ff7eb3, #ff758c, #ff5252);
+}
+
+.gradient-x-2 {
+  background: linear-gradient(to right, #1e3c72, #2a5298, #4c8cfc);
+}
+
+.gradient-x-3 {
+  background: linear-gradient(to right, #ff9a9e, #fad0c4, #fad0c4);
+}
+
+.gradient-x-4 {
+  background: linear-gradient(to right, #12c2e9, #c471ed, #f64f59);
+}
+
+.gradient-x-5 {
+  background: linear-gradient(to right, #f12711, #f5af19, #ffcc33);
+}
+
+.gradient-x-6 {
+  background: linear-gradient(to right, #0f2027, #203a43, #2c5364);
+}
+
+.gradient-x-7 {
+  background: linear-gradient(to right, #c31432, #711c91, #240b36);
+}
+
+.gradient-x-8 {
+  background: linear-gradient(to right, #3a1c71, #d76d77, #ffaf7b);
+}
+
+.gradient-y-1 {
+  background: linear-gradient(to bottom, #ff7eb3, #ff758c, #ff5252);
+}
+
+.gradient-y-2 {
+  background: linear-gradient(to bottom, #1e3c72, #2a5298, #4c8cfc);
+}
+
+.gradient-y-3 {
+  background: linear-gradient(to bottom, #ff9a9e, #fad0c4, #fad0c4);
+}
+
+.gradient-y-4 {
+  background: linear-gradient(to bottom, #12c2e9, #c471ed, #f64f59);
+}
+
+.gradient-y-5 {
+  background: linear-gradient(to bottom, #f12711, #f5af19, #ffcc33);
+}
+
+.gradient-y-6 {
+  background: linear-gradient(to bottom, #0f2027, #203a43, #2c5364);
+}
+
+.gradient-y-7 {
+  background: linear-gradient(to bottom, #c31432, #711c91, #240b36);
+}
+
+.gradient-y-8 {
+  background: linear-gradient(to bottom, #3a1c71, #d76d77, #ffaf7b);
+}
