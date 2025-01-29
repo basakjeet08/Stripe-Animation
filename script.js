@@ -7,30 +7,11 @@ const gridMap = [
   [false, true, false, false, true, true],
 ];
 const shapes = ["rectangle", "circle", "diamond"];
-const xGradient = [
-  "gradient-x-1",
-  "gradient-x-2",
-  "gradient-x-3",
-  "gradient-x-4",
-  "gradient-x-5",
-  "gradient-x-6",
-  "gradient-x-7",
-  "gradient-x-8",
-];
-const yGradient = [
-  "gradient-y-1",
-  "gradient-y-2",
-  "gradient-y-3",
-  "gradient-y-4",
-  "gradient-y-5",
-  "gradient-y-6",
-  "gradient-y-7",
-  "gradient-y-8",
-];
 const INTERVAL_DELAY = 12000;
 
 // Grid Animation Container and cells
 const animationContainer = document.querySelector(".container");
+const svg = document.querySelector("svg");
 let gridCells;
 
 // Returns random shapes for the card shapes
@@ -72,49 +53,36 @@ const populateGrid = (gridMap) => {
   return cells;
 };
 
-// This determines if the Line needs to be drawn horizontally
-const isX = (initialPos, finalPos) => {
-  return initialPos.top == finalPos.top;
+// This function creates a Path
+const createPath = (fromCell, toCell) => {
+  // Get center points
+  const x1 = fromCell.offsetLeft + fromCell.offsetWidth / 2;
+  const y1 = fromCell.offsetTop + fromCell.offsetHeight / 2;
+  const x2 = toCell.offsetLeft + toCell.offsetWidth / 2;
+  const y2 = toCell.offsetTop + toCell.offsetHeight / 2;
+
+  // Create a path
+  const path = document.createElementNS("http://www.w3.org/2000/svg", "path");
+  const pathData = `M ${x1} ${y1} L ${x2} ${y2}`;
+  path.setAttribute("d", pathData);
+  path.classList.add("path");
+  svg.appendChild(path);
+
+  return path;
 };
 
-// This is the function that creates a Line
-const createLine = (fromRect, toRect) => {
-  const line = document.createElement("div");
-  line.classList.add("line");
-  animationContainer.appendChild(line);
-
-  // Initial Position of line
-  line.style.top = `${fromRect.top + fromRect.height / 2}px`;
-  line.style.left = `${fromRect.left + fromRect.width / 2}px`;
-
-  // Gradient for the line
-  const gradient = isX(fromRect, toRect)
-    ? getRandom(xGradient)
-    : getRandom(yGradient);
-  line.classList.add(gradient);
-
-  return line;
-};
-
-// This function animates the lines
-const animateLine = (fromIndex, toIndex) => {
+// This function animates Paths
+const animatePath = (fromIndex, toIndex) => {
   if (!gridCells[fromIndex] || !gridCells[toIndex]) return;
 
   const fromCell = gridCells[fromIndex];
   const toCell = gridCells[toIndex];
-
-  // Dynamically creating a line element
-  const fromRect = fromCell.getBoundingClientRect();
-  const toRect = toCell.getBoundingClientRect();
-  const line = createLine(fromRect, toRect);
+  const path = createPath(fromCell, toCell);
 
   const ANIMATION_TIME = 3000;
 
   // Animation Start (0%)
   fromCell.classList.add("card-hover");
-  line.style.animation = isX(fromRect, toRect)
-    ? `growLine-X ${ANIMATION_TIME}ms ease-in-out`
-    : `growLine-Y ${ANIMATION_TIME}ms ease-in-out`;
 
   // Animation Middle (25%)
   setTimeout(() => {
@@ -125,7 +93,7 @@ const animateLine = (fromIndex, toIndex) => {
   setTimeout(() => {
     fromCell.classList.remove("card-hover");
     toCell.classList.remove("card-hover");
-    animationContainer.removeChild(line);
+    svg.removeChild(path);
   }, ANIMATION_TIME);
 };
 
@@ -156,46 +124,3 @@ const main = () => {
 };
 
 main();
-
-const svg = document.querySelector("svg");
-const createPath = (fromCell, toCell) => {
-  // Get center points
-  const x1 = fromCell.offsetLeft + fromCell.offsetWidth / 2;
-  const y1 = fromCell.offsetTop + fromCell.offsetHeight / 2;
-  const x2 = toCell.offsetLeft + toCell.offsetWidth / 2;
-  const y2 = toCell.offsetTop + toCell.offsetHeight / 2;
-
-  // Create a path
-  const path = document.createElementNS("http://www.w3.org/2000/svg", "path");
-  const pathData = `M ${x1} ${y1} L ${x2} ${y2}`;
-  path.setAttribute("d", pathData);
-  path.classList.add("path");
-  svg.appendChild(path);
-
-  return path;
-};
-
-const animatePath = (fromIndex, toIndex) => {
-  if (!gridCells[fromIndex] || !gridCells[toIndex]) return;
-
-  const fromCell = gridCells[fromIndex];
-  const toCell = gridCells[toIndex];
-  const path = createPath(fromCell, toCell);
-
-  const ANIMATION_TIME = 3000;
-
-  // Animation Start (0%)
-  fromCell.classList.add("card-hover");
-
-  // Animation Middle (25%)
-  setTimeout(() => {
-    toCell.classList.add("card-hover");
-  }, ANIMATION_TIME * 0.25);
-
-  // Animation End (100%)
-  setTimeout(() => {
-    fromCell.classList.remove("card-hover");
-    toCell.classList.remove("card-hover");
-    svg.removeChild(path);
-  }, ANIMATION_TIME);
-};

@@ -1,5 +1,4 @@
 @import "./shapes-styles.css";
-@import "./gradients.css";
 
 :root {
   --background: #1c1f22;
@@ -78,8 +77,7 @@ body {
 
 svg {
   position: absolute;
-  height: 500px;
-  width: 500px;
+  fill: none;
   pointer-events: none;
 }
 
