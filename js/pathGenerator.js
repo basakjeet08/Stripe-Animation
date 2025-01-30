@@ -38,7 +38,7 @@ export const generatePath = (fromCell, toCell, direction) => {
   switch (direction) {
     case DOWN_RIGHT:
       pathData = `
-        M ${xMin} ${yMax}
+        M ${xMin} ${yMin}
         V ${yMax - 24}
         A 24 24 0 0 0 ${xMin + 24} ${yMax}
         H ${xMax}
