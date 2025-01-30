@@ -8,20 +8,35 @@ const gridMap = [
   [false, true, false, false, true, true],
 ];
 
-// Shapes for the cards items
-const shapes = ["rectangle", "circle", "diamond"];
+const cardNames = [
+  "Scholar - 0",
+  "Inbox - 1",
+  "Battery - 2",
+  "Notif - 3",
+  "Lab - 4",
+  "Light - 5",
+  "Book - 6",
+  "Bookmark - 7",
+  "Job - 8",
+  "Spider - 9",
+  "Chart - 10",
+  "Chat - 11",
+  "Chat - 12",
+  "Database - 13",
+  "Todo - 14",
+  "Code - 15",
+];
 
 // Grid Animation Container and cells
 const animationContainer = document.querySelector(".container");
 
-// Returns random shapes for the card shapes
-const getRandom = (array) => {
-  return array[Math.floor(Math.random() * array.length)];
-};
-
 // This function is populating the Grid container
 export const populateGrid = () => {
   const cells = [];
+
+  // Shapes for the cards items
+  const svgShapes = document.querySelectorAll(".shape");
+  let count = 0;
 
   for (let row = 0; row < gridMap.length; row++) {
     for (let col = 0; col < gridMap[0].length; col++) {
@@ -32,15 +47,13 @@ export const populateGrid = () => {
         // Giving Default Cell CSS
         cell.classList.add("card");
 
-        // Creating new div for the cell
-        let child = document.createElement("div");
-        child.classList.add("shape", getRandom(shapes));
-        cell.appendChild(child);
+        // Adding svg to the card
+        cell.appendChild(svgShapes[count]);
 
         // Creating new paragraph for the cell
-        child = document.createElement("p");
+        let child = document.createElement("p");
         child.classList.add("hidden-text");
-        child.textContent = `Card No. ${cells.length}`;
+        child.textContent = cardNames[count++];
         cell.appendChild(child);
 
         // Adding this cell in the array

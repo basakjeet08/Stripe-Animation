@@ -1,42 +1,114 @@
 .shape {
   height: 32px;
   width: 32px;
-  border: 1px solid var(--border-color);
+  fill: none;
+
+  stroke: var(--border-color);
+  stroke-width: 1;
+
+  height: 32px;
+  width: 32px;
+
+  border: none;
 }
 
-/* Rectangle */
-.rectangle {
-  border-radius: 4px;
-}
-
-.card:hover > .rectangle,
-.card-hover > .rectangle {
-  background: linear-gradient(to right, #ff4b2b, #ff416c);
-  border: 1px solid transparent;
+.card-hover > .shape,
+.card:hover > .shape {
   transform: scale(0.8) translateY(-10px);
 }
 
-/* Circle */
-.circle {
-  border-radius: 50%;
+.card:hover > .s-0,
+.card-hover > .s-0 {
+  fill: lightseagreen;
+  stroke: none;
 }
 
-.card:hover > .circle,
-.card-hover > .circle {
-  background: linear-gradient(to right, #0acffe, #495aff);
-  border: 1px solid transparent;
-  transform: scale(0.8) translateY(-10px);
+.card:hover > .s-1,
+.card-hover > .s-1 {
+  fill: lightgreen;
+  stroke: none;
 }
 
-/* Diamond */
-.diamond {
-  transform: rotate(45deg);
-  border-radius: 4px;
+.card:hover > .s-2,
+.card-hover > .s-2 {
+  fill: lightsalmon;
+  stroke: none;
 }
 
-.card:hover > .diamond,
-.card-hover > .diamond {
-  background: linear-gradient(to right, #ff758c, #ff7eb3);
-  border: 1px solid transparent;
-  transform: scale(0.8) translateY(-10px) rotate(45deg);
+.card:hover > .s-3,
+.card-hover > .s-3 {
+  fill: lightpink;
+  stroke: none;
+}
+
+.card:hover > .s-4,
+.card-hover > .s-4 {
+  fill: lightcoral;
+  stroke: none;
+}
+
+.card:hover > .s-5,
+.card-hover > .s-5 {
+  fill: lightslategray;
+  stroke: none;
+}
+
+.card:hover > .s-6,
+.card-hover > .s-6 {
+  fill: lightseagreen;
+  stroke: none;
+}
+
+.card:hover > .s-7,
+.card-hover > .s-7 {
+  fill: lightgreen;
+  stroke: none;
+}
+
+.card:hover > .s-8,
+.card-hover > .s-8 {
+  fill: lightsalmon;
+  stroke: none;
+}
+
+.card:hover > .s-9,
+.card-hover > .s-9 {
+  fill: lightpink;
+  stroke: none;
+}
+
+.card:hover > .s-10,
+.card-hover > .s-10 {
+  fill: lightcoral;
+  stroke: none;
+}
+
+.card:hover > .s-11,
+.card-hover > .s-11 {
+  fill: lightslategray;
+  stroke: none;
+}
+
+.card:hover > .s-12,
+.card-hover > .s-12 {
+  fill: lightseagreen;
+  stroke: none;
+}
+
+.card:hover > .s-13,
+.card-hover > .s-13 {
+  fill: lightgreen;
+  stroke: none;
+}
+
+.card:hover > .s-14,
+.card-hover > .s-14 {
+  fill: lightsalmon;
+  stroke: none;
+}
+
+.card:hover > .s-15,
+.card-hover > .s-15 {
+  fill: lightcoral;
+  stroke: none;
 }
