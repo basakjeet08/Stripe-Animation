@@ -2,6 +2,18 @@ import * as pathGenerator from "./pathGenerator.js";
 
 const svg = document.querySelector("svg");
 
+const strokeAnimations = [
+  "stroke-anim-1",
+  "stroke-anim-2",
+  "stroke-anim-3",
+  "stroke-anim-4",
+];
+
+// Returns random shapes for the card shapes
+const getRandom = (array) => {
+  return array[Math.floor(Math.random() * array.length)];
+};
+
 let gridCells;
 export const setGridCells = (cells) => {
   gridCells = cells;
@@ -14,7 +26,7 @@ const createPath = (fromCell, toCell, direction) => {
   // Creating the Path
   const path = document.createElementNS("http://www.w3.org/2000/svg", "path");
   path.setAttribute("d", pathData);
-  path.classList.add("path");
+  path.classList.add("path", getRandom(strokeAnimations));
   path.style.strokeDasharray = path.getTotalLength() * 2;
   path.style.strokeDashoffset = path.getTotalLength() * 2;
 

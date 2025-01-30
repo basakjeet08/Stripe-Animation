@@ -58,14 +58,14 @@ body {
 }
 
 .hidden-text {
+  display: none;
   position: absolute;
   bottom: 0px;
-  visibility: hidden;
   font-size: 10px;
 }
 
 .card:hover > .hidden-text,
 .card-hover > .hidden-text {
-  visibility: visible;
+  display: block;
   transform: translateY(-6px);
 }

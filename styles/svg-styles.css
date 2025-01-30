@@ -5,9 +5,129 @@ svg {
 }
 
 .path {
-  stroke: red;
   stroke-width: 2px;
   animation: dash 3s ease-in-out;
+  stroke-linecap: round;
+}
+
+.stroke-anim-1 {
+  animation: dash 3s ease-in-out, stroke-anim-1 3s ease-in-out;
+}
+
+@keyframes stroke-anim-1 {
+  0% {
+    stroke: lightseagreen;
+  }
+
+  20% {
+    stroke: lightgreen;
+  }
+
+  40% {
+    stroke: lightsalmon;
+  }
+
+  60% {
+    stroke: lightpink;
+  }
+
+  80% {
+    stroke: lightcoral;
+  }
+
+  100% {
+    stroke: lightslategray;
+  }
+}
+
+.stroke-anim-2 {
+  animation: dash 3s ease-in-out, stroke-anim-2 3s ease-in-out;
+}
+
+@keyframes stroke-anim-2 {
+  0% {
+    stroke: #ff9a9e;
+  }
+
+  20% {
+    stroke: #fad0c4;
+  }
+
+  40% {
+    stroke: #ffdde1;
+  }
+
+  60% {
+    stroke: #fbab7e;
+  }
+
+  80% {
+    stroke: #f7b733;
+  }
+
+  100% {
+    stroke: #fc466b;
+  }
+}
+
+.stroke-anim-3 {
+  animation: dash 3s ease-in-out, stroke-anim-3 3s ease-in-out;
+}
+
+@keyframes stroke-anim-3 {
+  0% {
+    stroke: #2193b0;
+  }
+
+  20% {
+    stroke: #6dd5ed;
+  }
+
+  40% {
+    stroke: #9be15d;
+  }
+
+  60% {
+    stroke: #56ab2f;
+  }
+
+  80% {
+    stroke: #3a6186;
+  }
+
+  100% {
+    stroke: #2c3e50;
+  }
+}
+
+.stroke-anim-4 {
+  animation: dash 3s ease-in-out, stroke-anim-4 3s ease-in-out;
+}
+
+@keyframes stroke-anim-4 {
+  0% {
+    stroke: #ff4e50;
+  }
+
+  20% {
+    stroke: #fc913a;
+  }
+
+  40% {
+    stroke: #f9d423;
+  }
+
+  60% {
+    stroke: #ff6a00;
+  }
+
+  80% {
+    stroke: #ff0000;
+  }
+
+  100% {
+    stroke: #c31432;
+  }
 }
 
 @keyframes dash {
