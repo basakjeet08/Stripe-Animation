@@ -1,23 +1,33 @@
 import * as layoutManager from "./layoutManager.js";
 import * as animator from "./animator.js";
+import * as pathGenerator from "./pathGenerator.js";
 
 const ONE_ANIMATION_GROUP_TIME = 3000;
 const DELAY_BETWEEN_ANIMATIONS = 1000;
 let TOTAL_ANIMATION_TIME;
 const ANIMATION_DATA = [
   [
-    { start: 1, end: 2, direction: "straight" },
-    { start: 3, end: 12, direction: "straight" },
+    { start: 5, end: 1, direction: pathGenerator.UP_LEFT },
+    { start: 5, end: 8, direction: pathGenerator.DOWN_LEFT },
+    { start: 0, end: 3, direction: pathGenerator.RIGHT_DOWN },
+    { start: 3, end: 12, direction: pathGenerator.STRAIGHT },
   ],
 
   [
-    { start: 13, end: 14, direction: "straight" },
-    { start: 8, end: 9, direction: "straight" },
+    { start: 3, end: 9, direction: pathGenerator.DOWN_LEFT },
+    { start: 7, end: 9, direction: pathGenerator.DOWN_LEFT },
   ],
 
   [
-    { start: 4, end: 13, direction: "straight" },
-    { start: 7, end: 15, direction: "straight" },
+    { start: 9, end: 3, direction: pathGenerator.RIGHT_UP },
+    { start: 7, end: 15, direction: pathGenerator.STRAIGHT },
+    { start: 1, end: 0, direction: pathGenerator.RIGHT_UP },
+  ],
+
+  [
+    { start: 13, end: 8, direction: pathGenerator.UP_LEFT },
+    { start: 13, end: 14, direction: pathGenerator.STRAIGHT },
+    { start: 12, end: 6, direction: pathGenerator.UP_LEFT },
   ],
 ];
 

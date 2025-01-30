@@ -1,3 +1,13 @@
+export const STRAIGHT = "straight";
+export const DOWN_RIGHT = "down-right";
+export const LEFT_UP = "left-up";
+export const DOWN_LEFT = "down-left";
+export const RIGHT_UP = "right-up";
+export const RIGHT_DOWN = "right-down";
+export const UP_LEFT = "up-left";
+export const LEFT_DOWN = "left-down";
+export const UP_RIGHT = "up-right";
+
 // Function which calculate the dimensions for the Rectangle or SVG
 const findData = (fromCell, toCell) => {
   // Get (x , y) Coordinates for the given cells
@@ -20,45 +30,83 @@ const findData = (fromCell, toCell) => {
 export const generatePath = (fromCell, toCell, direction) => {
   const { xMin, yMin, xMax, yMax } = findData(fromCell, toCell);
 
-  if (xMin == xMax || yMin == yMax) {
+  if (xMin == xMax || yMin == yMax || direction === STRAIGHT) {
     return `M ${xMin} ${yMin} L ${xMax} ${yMax}`;
   }
 
   let pathData;
   switch (direction) {
-    case "left-down":
+    case DOWN_RIGHT:
       pathData = `
-          M ${xMin} ${yMin} 
-          H ${xMax - 24}
-          A 24 24 0 0 1 ${xMax} ${yMin + 24}
-          V ${yMax}
-        `;
+        M ${xMin} ${yMax}
+        V ${yMax - 24}
+        A 24 24 0 0 0 ${xMin + 24} ${yMax}
+        H ${xMax}
+      `;
       break;
 
-    case "left-up":
+    case LEFT_UP:
       pathData = `
-          M ${xMin} ${yMax} 
-          H ${xMax - 24}
-          A 24 24 0 0 0 ${xMax} ${yMax - 24}
-          V ${yMin}
-        `;
+        M ${xMax} ${yMax}
+        H ${xMin + 24}
+        A 24 24 0 0 1 ${xMin} ${yMax - 24}
+        V ${yMin}
+      `;
       break;
 
-    case "down-left":
+    case DOWN_LEFT:
       pathData = `
-          M ${xMax} ${yMin}
-          V ${yMax - 24}
-          A 24 24 0 0 1 ${xMax - 24} ${yMax}
-          H ${xMin}
-        `;
+        M ${xMax} ${yMin}
+        V ${yMax - 24}
+        A 24 24 0 0 1 ${xMax - 24} ${yMax}
+        H ${xMin}
+      `;
+      break;
 
-    case "down-right":
+    case RIGHT_UP:
       pathData = `
-          M ${xMin} ${yMin}
-          V ${yMax - 24}
-          A 24 24 0 0 0 ${xMin + 24} ${yMax}
-          H ${xMax}
-        `;
+        M ${xMin} ${yMax} 
+        H ${xMax - 24}
+        A 24 24 0 0 0 ${xMax} ${yMax - 24}
+        V ${yMin}
+      `;
+      break;
+
+    case RIGHT_DOWN:
+      pathData = `
+        M ${xMin} ${yMin} 
+        H ${xMax - 24}
+        A 24 24 0 0 1 ${xMax} ${yMin + 24}
+        V ${yMax}
+      `;
+      break;
+
+    case UP_LEFT:
+      pathData = `
+      M ${xMax} ${yMax} 
+      V ${yMin + 24}
+      A 24 24 0 0 0 ${xMax - 24} ${yMin}
+      H ${xMin}
+    `;
+      break;
+
+    case LEFT_DOWN:
+      pathData = `
+      M ${xMax} ${yMin} 
+      H ${xMin + 24}
+      A 24 24 0 0 0 ${xMin} ${yMin + 24}
+      V ${yMax}
+    `;
+      break;
+
+    case UP_RIGHT:
+      pathData = `
+      M ${xMin} ${yMax} 
+      V ${yMin + 24}
+      A 24 24 0 0 1 ${xMin + 24} ${yMin}
+      H ${xMax}
+    `;
+      break;
   }
 
   return pathData;
