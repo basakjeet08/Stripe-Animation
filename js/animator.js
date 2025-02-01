@@ -47,10 +47,10 @@ export const animatePath = (fromIndex, toIndex, direction, animationTime) => {
   // Animation Start (0%)
   fromCell.classList.add("card-hover");
 
-  // Animation Middle (30%)
+  // Animation Middle (25%)
   setTimeout(() => {
     toCell.classList.add("card-hover");
-  }, animationTime * 0.3);
+  }, animationTime * 0.25);
 
   // Animation End (100%)
   setTimeout(() => {
