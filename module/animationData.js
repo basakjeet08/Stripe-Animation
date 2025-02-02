@@ -1,30 +1,48 @@
 // This is the data store which stores all the data
-const animationData = {
-  layoutMap: [],
-  container: null,
-  drawChildElement: () => {},
-  gridCells: [],
-  svgContainer: null,
-  animationGroups: [],
-  addPathDecoration: () => {},
-  cardHoverStyles: null,
-  time: {
-    groupTime: 3000,
-    delayTime: 1000,
+const animationConfig = {
+  grid: {
+    container: null,
+    layout: [],
+    cellList: [],
+    functions: {
+      drawCellElement: (_isActiveChild, _activeCount) => {},
+    },
+  },
+
+  animation: {
+    container: null,
+    groupList: [],
+    hover: null,
+    time: { group: 3000, delay: 1000 },
+
+    functions: {
+      drawPath: (_path) => {},
+    },
   },
 };
 
 // This is used to set the animation configurations
 export const setAnimationConfig = (config = {}) => {
-  Object.assign(animationData, config);
+  animationConfig.grid = { ...animationConfig.grid, ...config.grid };
+  animationConfig.animation = {
+    ...animationConfig.animation,
+    ...config.animation,
+  };
 };
 
-// This is the getter function to get the Animation data
-export const getAnimationData = () => {
-  return { ...animationData, time: { ...animationData.time } };
+// This function returns the grid property of the animation config
+export const getGrid = () => {
+  return {
+    ...animationConfig.grid,
+    functions: { ...animationConfig.grid.functions },
+  };
 };
 
-// This function is used to set the cells which are in the grid
-export const setCells = (cells) => {
-  animationData.gridCells = cells;
+// This function returns the animation property of the animation config
+export const getAnimation = () => {
+  return {
+    ...animationConfig.animation,
+    time: { ...animationConfig.animation.time },
+    functions: { ...animationConfig.animation.functions },
+  };
 };

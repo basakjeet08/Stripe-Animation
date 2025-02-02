@@ -1,18 +1,13 @@
 import { generatePath } from "./pathGenerator.js";
-import { getAnimationData } from "./animationData.js";
+import { getAnimation, getGrid } from "./animationData.js";
 
 // Values needed by this component to run smoothly
-let gridCells, addPathDecoration, svgContainer, groupTime, cardHoverStyles;
+let cellList, functions, container, time, hover;
 
 // Function which initializes all the data to be needed by this component
 export const initializeAnimator = () => {
-  ({
-    gridCells,
-    svgContainer,
-    addPathDecoration,
-    cardHoverStyles,
-    time: { groupTime },
-  } = getAnimationData());
+  ({ cellList } = getGrid());
+  ({ container, hover, time, functions } = getAnimation());
 };
 
 // This function creates a path for the animtion
@@ -25,34 +20,34 @@ const createPath = (fromCell, toCell, direction) => {
   path.setAttribute("d", pathData);
   path.style.strokeDasharray = path.getTotalLength() * 2;
   path.style.strokeDashoffset = path.getTotalLength() * 2;
-  addPathDecoration(path);
+  functions.drawPath(path);
 
   return path;
 };
 
 // This function animates Paths
 export const animatePath = ({ start, end, direction }) => {
-  if (!gridCells[start] || !gridCells[end]) return;
+  if (!cellList[start] || !cellList[end]) return;
 
-  const fromCell = gridCells[start];
-  const toCell = gridCells[end];
+  const fromCell = cellList[start];
+  const toCell = cellList[end];
   const path = createPath(fromCell, toCell, direction);
 
   // Connecting the Path in the SVG
-  svgContainer.appendChild(path);
+  container.appendChild(path);
 
   // Animation Start (0%)
-  fromCell.classList.add(cardHoverStyles);
+  fromCell.classList.add(hover);
 
   // Animation Middle (25%)
   setTimeout(() => {
-    toCell.classList.add(cardHoverStyles);
-  }, groupTime * 0.25);
+    toCell.classList.add(hover);
+  }, time.group * 0.25);
 
   // Animation End (100%)
   setTimeout(() => {
-    fromCell.classList.remove(cardHoverStyles);
-    toCell.classList.remove(cardHoverStyles);
-    svgContainer.removeChild(path);
-  }, groupTime);
+    fromCell.classList.remove(hover);
+    toCell.classList.remove(hover);
+    container.removeChild(path);
+  }, time.group);
 };

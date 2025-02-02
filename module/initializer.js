@@ -1,4 +1,4 @@
-import { setAnimationConfig, getAnimationData } from "./animationData.js";
+import { setAnimationConfig, getAnimation } from "./animationData.js";
 import { drawLayout, initializeLayout } from "./layout.js";
 import { animatePath, initializeAnimator } from "./animator.js";
 
@@ -15,20 +15,20 @@ export const startDrawingLayout = () => {
 // This function starts animations
 export const startAnimating = () => {
   // This is the animation configuration data passed by the developer
-  const { animationGroups, time } = getAnimationData();
-  const { groupTime, delayTime } = time;
-  const groupLength = animationGroups.length;
+  const { groupList, time } = getAnimation();
+  const { group, delay } = time;
+  const groupLength = groupList.length;
 
   // Totol time for one occurence of animation
-  const totalTime = groupLength * (groupTime + delayTime);
+  const totalTime = groupLength * (group + delay);
 
   // This function starts the animation
   const startOverallAnimation = () => {
     // Looping through all the groups
-    animationGroups.forEach((animationGroup, index) => {
+    groupList.forEach((animationGroup, index) => {
       setTimeout(() => {
         animationGroup.forEach((animation) => animatePath(animation));
-      }, index * (groupTime + delayTime));
+      }, index * (group + delay));
     });
   };
 
