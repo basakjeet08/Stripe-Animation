@@ -1,13 +1,5 @@
 import * as pathGenerator from "./pathGenerator.js";
-
-const svg = document.querySelector("svg");
-
-const strokeAnimations = [
-  "stroke-anim-1",
-  "stroke-anim-2",
-  "stroke-anim-3",
-  "stroke-anim-4",
-];
+import { AnimationConfig, STROKE_ANIMATIONS } from "../constants/data.js";
 
 // Returns random shapes for the card shapes
 const getRandom = (array) => {
@@ -26,12 +18,12 @@ const createPath = (fromCell, toCell, direction) => {
   // Creating the Path
   const path = document.createElementNS("http://www.w3.org/2000/svg", "path");
   path.setAttribute("d", pathData);
-  path.classList.add("path", getRandom(strokeAnimations));
+  path.classList.add("path", getRandom(STROKE_ANIMATIONS));
   path.style.strokeDasharray = path.getTotalLength() * 2;
   path.style.strokeDashoffset = path.getTotalLength() * 2;
 
   // Connecting the Path in the SVG
-  svg.appendChild(path);
+  AnimationConfig.svgContainer.appendChild(path);
 
   return path;
 };
@@ -56,6 +48,6 @@ export const animatePath = (fromIndex, toIndex, direction, animationTime) => {
   setTimeout(() => {
     fromCell.classList.remove("card-hover");
     toCell.classList.remove("card-hover");
-    svg.removeChild(path);
+    AnimationConfig.svgContainer.removeChild(path);
   }, animationTime);
 };

@@ -111,11 +111,3 @@ export const generatePath = (fromCell, toCell, direction) => {
 
   return pathData;
 };
-
-// A 24 24 0 0 1 ${xMin} ${yMax - 24}
-// A -> Arc Command
-// 24 , 24 x radius , y radius
-// 0 -> rotation of the ellipse
-// 0 -> smaller arc is drawn
-// 1 -> if the arc will be drawn clockwise or anti
-// ${xMin} ${yMax - 24} Destination
