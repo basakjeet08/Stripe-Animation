@@ -1,4 +1,8 @@
-import { initializeAnimation } from "../module/initializer.js";
+import {
+  setConfiguration,
+  startDrawingLayout,
+  startAnimating,
+} from "../module/initializer.js";
 import { svgArray } from "../constants/svgData.js";
 import { direction } from "../module/direction.js";
 
@@ -47,7 +51,7 @@ const config = {
     [false, false, true, true, true, false],
     [false, true, false, false, true, true],
   ],
-  animationContainer: document.querySelector(".container"),
+  container: document.querySelector(".container"),
   drawChildElement: drawChildElement,
   svgContainer: document.querySelector("svg"),
   animationGroups: [
@@ -89,9 +93,11 @@ const config = {
     "stroke-anim-4",
   ],
   time: {
-    animationGroupTime: 3000,
-    delayBetweenGroups: 1000,
+    groupTime: 3000,
+    delayTime: 1000,
   },
 };
 
-initializeAnimation(config);
+setConfiguration(config);
+startDrawingLayout();
+startAnimating();

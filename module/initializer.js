@@ -1,38 +1,34 @@
-import { setAnimationConfig } from "./animationData.js";
-import { drawLayout } from "./layout.js";
-import { animatePath, setGridCells } from "./animator.js";
+import { setAnimationConfig, getAnimationData } from "./animationData.js";
+import { drawLayout, initializeLayout } from "./layout.js";
+import { animatePath, initializeAnimator } from "./animator.js";
 
-// Animation Initializer
-const startOneGroupAnimation = (animationsObj, groupTime) => {
-  // Iterate over each animation in the set
-  animationsObj.forEach((animation) => {
-    animatePath(animation.start, animation.end, animation.direction, groupTime);
-  });
+// This function is used to configure the animation data
+export const setConfiguration = (config) => setAnimationConfig(config);
+
+// This funciton is used to draw the grid layout into the screen
+export const startDrawingLayout = () => {
+  initializeLayout();
+  drawLayout();
+  initializeAnimator();
 };
 
-const startRendering = (animationData) => {
-  const gridCells = drawLayout({
-    layoutMap: animationData.layoutMap,
-    container: animationData.animationContainer,
-    drawElement: animationData.drawChildElement,
-  });
+// This function starts animations
+export const startAnimating = () => {
+  // This is the animation configuration data passed by the developer
+  const { animationGroups, time } = getAnimationData();
+  const { groupTime, delayTime } = time;
+  const groupLength = animationGroups.length;
 
-  setGridCells(gridCells);
-
-  const groupLength = animationData.animationGroups.length;
-  const groupTime = animationData.time.animationGroupTime;
-  const delayTime = animationData.time.delayBetweenGroups;
-
+  // Totol time for one occurence of animation
   const totalTime = groupLength * (groupTime + delayTime);
 
+  // This function starts the animation
   const startOverallAnimation = () => {
-    animationData.animationGroups.forEach((animationsObj, index) => {
+    // Looping through all the groups
+    animationGroups.forEach((animationGroup, index) => {
       setTimeout(() => {
-        startOneGroupAnimation(
-          animationsObj,
-          animationData.time.animationGroupTime
-        );
-      }, index * (animationData.time.animationGroupTime + animationData.time.delayBetweenGroups));
+        animationGroup.forEach((animation) => animatePath(animation));
+      }, index * (groupTime + delayTime));
     });
   };
 
@@ -40,13 +36,4 @@ const startRendering = (animationData) => {
 
   // Looping the Animation after all the groups are completed animating
   setInterval(() => startOverallAnimation(), totalTime);
-};
-
-// This Function configures the animation data and then starts rendering it
-export const initializeAnimation = (config) => {
-  // Configuring the animation
-  const animationData = setAnimationConfig(config);
-
-  // Starting the animation rendering
-  startRendering(animationData);
 };
