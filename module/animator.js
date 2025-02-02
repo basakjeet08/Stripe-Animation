@@ -1,4 +1,4 @@
-import * as pathGenerator from "./pathGenerator.js";
+import { generatePath } from "./pathGenerator.js";
 import { AnimationConfig, STROKE_ANIMATIONS } from "../constants/data.js";
 
 // Returns random shapes for the card shapes
@@ -13,7 +13,7 @@ export const setGridCells = (cells) => {
 
 const createPath = (fromCell, toCell, direction) => {
   // Generating the Path Data Draw Code
-  const pathData = pathGenerator.generatePath(fromCell, toCell, direction);
+  const pathData = generatePath(fromCell, toCell, direction);
 
   // Creating the Path
   const path = document.createElementNS("http://www.w3.org/2000/svg", "path");

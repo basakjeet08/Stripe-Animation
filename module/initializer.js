@@ -1,28 +1,23 @@
 import { setAnimationConfig } from "./animationData.js";
-import * as layout from "./layout.js";
-import * as animator from "../js/animator.js";
+import { drawLayout } from "./layout.js";
+import { animatePath, setGridCells } from "./animator.js";
 
 // Animation Initializer
 const startOneGroupAnimation = (animationsObj, groupTime) => {
   // Iterate over each animation in the set
   animationsObj.forEach((animation) => {
-    animator.animatePath(
-      animation.start,
-      animation.end,
-      animation.direction,
-      groupTime
-    );
+    animatePath(animation.start, animation.end, animation.direction, groupTime);
   });
 };
 
 const startRendering = (animationData) => {
-  const gridCells = layout.drawLayout({
+  const gridCells = drawLayout({
     layoutMap: animationData.layoutMap,
     container: animationData.animationContainer,
     drawElement: animationData.drawChildElement,
   });
 
-  animator.setGridCells(gridCells);
+  setGridCells(gridCells);
 
   const groupLength = animationData.animationGroups.length;
   const groupTime = animationData.time.animationGroupTime;

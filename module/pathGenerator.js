@@ -1,12 +1,4 @@
-export const STRAIGHT = "straight";
-export const DOWN_RIGHT = "down-right";
-export const LEFT_UP = "left-up";
-export const DOWN_LEFT = "down-left";
-export const RIGHT_UP = "right-up";
-export const RIGHT_DOWN = "right-down";
-export const UP_LEFT = "up-left";
-export const LEFT_DOWN = "left-down";
-export const UP_RIGHT = "up-right";
+import { direction } from "./direction.js";
 
 // Function which calculate the dimensions for the Rectangle or SVG
 const findData = (fromCell, toCell) => {
@@ -27,87 +19,77 @@ const findData = (fromCell, toCell) => {
   return { xMin, yMin, xMax, yMax };
 };
 
-export const generatePath = (fromCell, toCell, direction) => {
+// This function gnerates a path/line from point A to B in a given direction
+export const generatePath = (fromCell, toCell, givenDirection) => {
   const { xMin, yMin, xMax, yMax } = findData(fromCell, toCell);
 
-  if (xMin == xMax || yMin == yMax || direction === STRAIGHT) {
-    return `M ${xMin} ${yMin} L ${xMax} ${yMax}`;
-  }
+  switch (givenDirection) {
+    case direction.STRAIGHT:
+      return `M ${xMin} ${yMin} L ${xMax} ${yMax}`;
 
-  let pathData;
-  switch (direction) {
-    case DOWN_RIGHT:
-      pathData = `
+    case direction.DOWN_RIGHT:
+      return `
         M ${xMin} ${yMin}
         V ${yMax - 24}
         A 24 24 0 0 0 ${xMin + 24} ${yMax}
         H ${xMax}
       `;
-      break;
 
-    case LEFT_UP:
-      pathData = `
+    case direction.LEFT_UP:
+      return `
         M ${xMax} ${yMax}
         H ${xMin + 24}
         A 24 24 0 0 1 ${xMin} ${yMax - 24}
         V ${yMin}
       `;
-      break;
 
-    case DOWN_LEFT:
-      pathData = `
+    case direction.DOWN_LEFT:
+      return `
         M ${xMax} ${yMin}
         V ${yMax - 24}
         A 24 24 0 0 1 ${xMax - 24} ${yMax}
         H ${xMin}
       `;
-      break;
 
-    case RIGHT_UP:
-      pathData = `
+    case direction.RIGHT_UP:
+      return `
         M ${xMin} ${yMax} 
         H ${xMax - 24}
         A 24 24 0 0 0 ${xMax} ${yMax - 24}
         V ${yMin}
       `;
-      break;
 
-    case RIGHT_DOWN:
-      pathData = `
+    case direction.RIGHT_DOWN:
+      return `
         M ${xMin} ${yMin} 
         H ${xMax - 24}
         A 24 24 0 0 1 ${xMax} ${yMin + 24}
         V ${yMax}
       `;
-      break;
 
-    case UP_LEFT:
-      pathData = `
+    case direction.UP_LEFT:
+      return `
       M ${xMax} ${yMax} 
       V ${yMin + 24}
       A 24 24 0 0 0 ${xMax - 24} ${yMin}
       H ${xMin}
     `;
-      break;
 
-    case LEFT_DOWN:
-      pathData = `
+    case direction.LEFT_DOWN:
+      return `
       M ${xMax} ${yMin} 
       H ${xMin + 24}
       A 24 24 0 0 0 ${xMin} ${yMin + 24}
       V ${yMax}
     `;
-      break;
 
-    case UP_RIGHT:
-      pathData = `
+    case direction.UP_RIGHT:
+      return `
       M ${xMin} ${yMax} 
       V ${yMin + 24}
       A 24 24 0 0 1 ${xMin + 24} ${yMin}
       H ${xMax}
     `;
-      break;
   }
-
-  return pathData;
+  return null;
 };
