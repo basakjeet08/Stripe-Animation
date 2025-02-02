@@ -1,5 +1,5 @@
 import { generatePath } from "./pathGenerator.js";
-import { AnimationConfig, STROKE_ANIMATIONS } from "../constants/data.js";
+import { getAnimationData } from "./animationData.js";
 
 // Returns random shapes for the card shapes
 const getRandom = (array) => {
@@ -7,8 +7,10 @@ const getRandom = (array) => {
 };
 
 let gridCells;
+let STROKE_ANIMATIONS;
 export const setGridCells = (cells) => {
   gridCells = cells;
+  STROKE_ANIMATIONS = getAnimationData().strokeStyles;
 };
 
 const createPath = (fromCell, toCell, direction) => {
@@ -23,7 +25,7 @@ const createPath = (fromCell, toCell, direction) => {
   path.style.strokeDashoffset = path.getTotalLength() * 2;
 
   // Connecting the Path in the SVG
-  AnimationConfig.svgContainer.appendChild(path);
+  getAnimationData().svgContainer.appendChild(path);
 
   return path;
 };
@@ -48,6 +50,6 @@ export const animatePath = (fromIndex, toIndex, direction, animationTime) => {
   setTimeout(() => {
     fromCell.classList.remove("card-hover");
     toCell.classList.remove("card-hover");
-    AnimationConfig.svgContainer.removeChild(path);
+    getAnimationData().svgContainer.removeChild(path);
   }, animationTime);
 };
