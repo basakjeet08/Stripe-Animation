@@ -25,6 +25,13 @@ export const CARD_NAMES = [
   "Code - 15",
 ];
 
+const strokeStyles = [
+  "stroke-anim-1",
+  "stroke-anim-2",
+  "stroke-anim-3",
+  "stroke-anim-4",
+];
+
 const drawChildElement = (isActiveChild, activeCount) => {
   const cell = document.createElement("div");
   if (!isActiveChild) return cell;
@@ -40,6 +47,12 @@ const drawChildElement = (isActiveChild, activeCount) => {
   cell.appendChild(child);
 
   return cell;
+};
+
+const addPathDecorations = (path) => {
+  const getRandom = (array) => array[Math.floor(Math.random() * array.length)];
+  path.classList.add("path", getRandom(strokeStyles));
+  return path;
 };
 
 const config = {
@@ -86,12 +99,8 @@ const config = {
       { start: 6, end: 9, direction: direction.STRAIGHT },
     ],
   ],
-  strokeStyles: [
-    "stroke-anim-1",
-    "stroke-anim-2",
-    "stroke-anim-3",
-    "stroke-anim-4",
-  ],
+  addPathDecoration: addPathDecorations,
+  cardHoverStyles: "card-hover",
   time: {
     groupTime: 3000,
     delayTime: 1000,

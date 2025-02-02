@@ -6,7 +6,8 @@ const animationData = {
   gridCells: [],
   svgContainer: null,
   animationGroups: [],
-  strokeStyles: [],
+  addPathDecoration: () => {},
+  cardHoverStyles: null,
   time: {
     groupTime: 3000,
     delayTime: 1000,

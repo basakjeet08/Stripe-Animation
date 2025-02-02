@@ -2,23 +2,20 @@ import { generatePath } from "./pathGenerator.js";
 import { getAnimationData } from "./animationData.js";
 
 // Values needed by this component to run smoothly
-let gridCells, strokeStyles, svgContainer, groupTime;
+let gridCells, addPathDecoration, svgContainer, groupTime, cardHoverStyles;
 
 // Function which initializes all the data to be needed by this component
 export const initializeAnimator = () => {
   ({
     gridCells,
-    strokeStyles,
     svgContainer,
+    addPathDecoration,
+    cardHoverStyles,
     time: { groupTime },
   } = getAnimationData());
 };
 
-// Returns random shapes for the card shapes
-const getRandom = (array) => {
-  return array[Math.floor(Math.random() * array.length)];
-};
-
+// This function creates a path for the animtion
 const createPath = (fromCell, toCell, direction) => {
   // Generating the Path Data Draw Code
   const pathData = generatePath(fromCell, toCell, direction);
@@ -26,12 +23,9 @@ const createPath = (fromCell, toCell, direction) => {
   // Creating the Path
   const path = document.createElementNS("http://www.w3.org/2000/svg", "path");
   path.setAttribute("d", pathData);
-  path.classList.add("path", getRandom(strokeStyles));
   path.style.strokeDasharray = path.getTotalLength() * 2;
   path.style.strokeDashoffset = path.getTotalLength() * 2;
-
-  // Connecting the Path in the SVG
-  svgContainer.appendChild(path);
+  addPathDecoration(path);
 
   return path;
 };
@@ -44,18 +38,21 @@ export const animatePath = ({ start, end, direction }) => {
   const toCell = gridCells[end];
   const path = createPath(fromCell, toCell, direction);
 
+  // Connecting the Path in the SVG
+  svgContainer.appendChild(path);
+
   // Animation Start (0%)
-  fromCell.classList.add("card-hover");
+  fromCell.classList.add(cardHoverStyles);
 
   // Animation Middle (25%)
   setTimeout(() => {
-    toCell.classList.add("card-hover");
+    toCell.classList.add(cardHoverStyles);
   }, groupTime * 0.25);
 
   // Animation End (100%)
   setTimeout(() => {
-    fromCell.classList.remove("card-hover");
-    toCell.classList.remove("card-hover");
+    fromCell.classList.remove(cardHoverStyles);
+    toCell.classList.remove(cardHoverStyles);
     svgContainer.removeChild(path);
   }, groupTime);
 };
