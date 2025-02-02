@@ -6,9 +6,6 @@
   stroke: var(--border-color);
   stroke-width: 1;
 
-  height: 32px;
-  width: 32px;
-
   border: none;
 }
 

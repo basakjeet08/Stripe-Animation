@@ -1,3 +1,5 @@
+import * as svgData from "../constants/svgData.js";
+
 // Grid Map for the card positions
 const gridMap = [
   [false, false, true, false, false, false],
@@ -33,9 +35,6 @@ const animationContainer = document.querySelector(".container");
 // This function is populating the Grid container
 export const populateGrid = () => {
   const cells = [];
-
-  // Shapes for the cards items
-  const svgShapes = document.querySelectorAll(".shape");
   let count = 0;
 
   for (let row = 0; row < gridMap.length; row++) {
@@ -48,7 +47,7 @@ export const populateGrid = () => {
         cell.classList.add("card");
 
         // Adding svg to the card
-        cell.appendChild(svgShapes[count]);
+        cell.innerHTML = svgData.svgArray[count];
 
         // Creating new paragraph for the cell
         let child = document.createElement("p");
