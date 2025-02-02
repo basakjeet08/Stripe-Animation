@@ -86,7 +86,7 @@ const svg7 = `
   <svg
     xmlns="http://www.w3.org/2000/svg"
     viewBox="0 0 24 24"
-    class="shape s-6"
+    class="shape s-0"
   >
     <path
       stroke-linecap="round"
@@ -100,7 +100,7 @@ const svg8 = `
   <svg
     xmlns="http://www.w3.org/2000/svg"
     viewBox="0 0 24 24"
-    class="shape s-7"
+    class="shape s-1"
   >
     <path
       stroke-linecap="round"
@@ -114,7 +114,7 @@ const svg9 = `
   <svg
     xmlns="http://www.w3.org/2000/svg"
     viewBox="0 0 24 24"
-    class="shape s-8"
+    class="shape s-2"
   >
     <path
       stroke-linecap="round"
@@ -128,7 +128,7 @@ const svg10 = `
   <svg
     xmlns="http://www.w3.org/2000/svg"
     viewBox="0 0 24 24"
-    class="shape s-9"
+    class="shape s-3"
   >
     <path
       stroke-linecap="round"
@@ -142,7 +142,7 @@ const svg11 = `
   <svg
     xmlns="http://www.w3.org/2000/svg"
     viewBox="0 0 24 24"
-    class="shape s-10"
+    class="shape s-4"
   >
     <path
       stroke-linecap="round"
@@ -156,7 +156,7 @@ const svg12 = `
   <svg
     xmlns="http://www.w3.org/2000/svg"
     viewBox="0 0 24 24"
-    class="shape s-11"
+    class="shape s-5"
   >
     <path
       stroke-linecap="round"
@@ -170,7 +170,7 @@ const svg13 = `
   <svg
     xmlns="http://www.w3.org/2000/svg"
     viewBox="0 0 24 24"
-    class="shape s-12"
+    class="shape s-0"
   >
     <path
       stroke-linecap="round"
@@ -184,7 +184,7 @@ const svg14 = `
   <svg
     xmlns="http://www.w3.org/2000/svg"
     viewBox="0 0 24 24"
-    class="shape s-13"
+    class="shape s-1"
   >
     <path
       stroke-linecap="round"
@@ -198,7 +198,7 @@ const svg15 = `
   <svg
     xmlns="http://www.w3.org/2000/svg"
     viewBox="0 0 24 24"
-    class="shape s-14"
+    class="shape s-2"
   >
     <path
       stroke-linecap="round"
@@ -212,7 +212,7 @@ const svg16 = `
   <svg
     xmlns="http://www.w3.org/2000/svg"
     viewBox="0 0 24 24"
-    class="shape s-15"
+    class="shape s-3"
   >
     <path
       stroke-linecap="round"

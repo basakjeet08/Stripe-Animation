@@ -6,12 +6,12 @@ svg {
 
 .path {
   stroke-width: 2px;
-  animation: dash 3s ease-in-out;
   stroke-linecap: round;
+  animation: dash 3s ease-in-out, var(--stroke-animation) 3s ease-in-out;
 }
 
 .stroke-anim-1 {
-  animation: dash 3s ease-in-out, stroke-anim-1 3s ease-in-out;
+  --stroke-animation: stroke-anim-1;
 }
 
 @keyframes stroke-anim-1 {
@@ -41,7 +41,7 @@ svg {
 }
 
 .stroke-anim-2 {
-  animation: dash 3s ease-in-out, stroke-anim-2 3s ease-in-out;
+  --stroke-animation: stroke-anim-2;
 }
 
 @keyframes stroke-anim-2 {
@@ -71,7 +71,7 @@ svg {
 }
 
 .stroke-anim-3 {
-  animation: dash 3s ease-in-out, stroke-anim-3 3s ease-in-out;
+  --stroke-animation: stroke-anim-3;
 }
 
 @keyframes stroke-anim-3 {
@@ -101,7 +101,7 @@ svg {
 }
 
 .stroke-anim-4 {
-  animation: dash 3s ease-in-out, stroke-anim-4 3s ease-in-out;
+  --stroke-animation: stroke-anim-4;
 }
 
 @keyframes stroke-anim-4 {

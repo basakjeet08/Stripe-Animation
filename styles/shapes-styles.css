@@ -12,100 +12,35 @@
 .card-hover > .shape,
 .card:hover > .shape {
   transform: scale(0.8) translateY(-10px);
+  stroke: none;
 }
 
 .card:hover > .s-0,
 .card-hover > .s-0 {
   fill: lightseagreen;
-  stroke: none;
 }
 
 .card:hover > .s-1,
 .card-hover > .s-1 {
   fill: lightgreen;
-  stroke: none;
 }
 
 .card:hover > .s-2,
 .card-hover > .s-2 {
   fill: lightsalmon;
-  stroke: none;
 }
 
 .card:hover > .s-3,
 .card-hover > .s-3 {
   fill: lightpink;
-  stroke: none;
 }
 
 .card:hover > .s-4,
 .card-hover > .s-4 {
   fill: lightcoral;
-  stroke: none;
 }
 
 .card:hover > .s-5,
 .card-hover > .s-5 {
   fill: lightslategray;
-  stroke: none;
-}
-
-.card:hover > .s-6,
-.card-hover > .s-6 {
-  fill: lightseagreen;
-  stroke: none;
-}
-
-.card:hover > .s-7,
-.card-hover > .s-7 {
-  fill: lightgreen;
-  stroke: none;
-}
-
-.card:hover > .s-8,
-.card-hover > .s-8 {
-  fill: lightsalmon;
-  stroke: none;
-}
-
-.card:hover > .s-9,
-.card-hover > .s-9 {
-  fill: lightpink;
-  stroke: none;
-}
-
-.card:hover > .s-10,
-.card-hover > .s-10 {
-  fill: lightcoral;
-  stroke: none;
-}
-
-.card:hover > .s-11,
-.card-hover > .s-11 {
-  fill: lightslategray;
-  stroke: none;
-}
-
-.card:hover > .s-12,
-.card-hover > .s-12 {
-  fill: lightseagreen;
-  stroke: none;
-}
-
-.card:hover > .s-13,
-.card-hover > .s-13 {
-  fill: lightgreen;
-  stroke: none;
-}
-
-.card:hover > .s-14,
-.card-hover > .s-14 {
-  fill: lightsalmon;
-  stroke: none;
-}
-
-.card:hover > .s-15,
-.card-hover > .s-15 {
-  fill: lightcoral;
-  stroke: none;
 }
