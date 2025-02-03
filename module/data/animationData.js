@@ -37,7 +37,7 @@ const animationConfig = {
         { start: 14, end: 6, direction: direction.UP_LEFT },
         { start: 14, end: 18, direction: direction.DOWN_LEFT },
         { start: 2, end: 10, direction: direction.RIGHT_DOWN },
-        { start: 10, end: 28, direction: direction.STRAIGHT },
+        { start: 10, end: 28, direction: direction.DOWN },
         { start: 34, end: 26, direction: direction.LEFT_UP },
       ],
 
@@ -51,7 +51,7 @@ const animationConfig = {
 
       [
         { start: 21, end: 10, direction: direction.RIGHT_UP },
-        { start: 17, end: 35, direction: direction.STRAIGHT },
+        { start: 17, end: 35, direction: direction.DOWN },
         { start: 6, end: 2, direction: direction.RIGHT_UP },
         { start: 18, end: 31, direction: direction.DOWN_RIGHT },
         { start: 13, end: 26, direction: direction.DOWN_RIGHT },
@@ -59,9 +59,9 @@ const animationConfig = {
 
       [
         { start: 31, end: 18, direction: direction.UP_LEFT },
-        { start: 31, end: 34, direction: direction.STRAIGHT },
+        { start: 31, end: 34, direction: direction.RIGHT },
         { start: 28, end: 15, direction: direction.UP_LEFT },
-        { start: 6, end: 9, direction: direction.STRAIGHT },
+        { start: 6, end: 9, direction: direction.RIGHT },
       ],
     ],
     hover: "default-animation-card-hover",

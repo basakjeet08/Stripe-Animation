@@ -24,8 +24,17 @@ export const generatePath = (fromCell, toCell, givenDirection) => {
   const { xMin, yMin, xMax, yMax } = findData(fromCell, toCell);
 
   switch (givenDirection) {
-    case direction.STRAIGHT:
-      return `M ${xMin} ${yMin} L ${xMax} ${yMax}`;
+    case direction.UP:
+      return `M ${xMin} ${yMax} L ${xMin} ${yMin}`;
+
+    case direction.LEFT:
+      return `M ${xMax} ${yMin} L ${xMin} ${yMin}`;
+
+    case direction.DOWN:
+      return `M ${xMin} ${yMin} L ${xMin} ${yMax}`;
+
+    case direction.RIGHT:
+      return `M ${xMin} ${yMin} L ${xMax} ${yMin}`;
 
     case direction.DOWN_RIGHT:
       return `

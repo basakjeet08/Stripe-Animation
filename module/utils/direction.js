@@ -1,5 +1,8 @@
 export const direction = {
-  STRAIGHT: "straight",
+  UP: "up",
+  LEFT: "left",
+  DOWN: "down",
+  RIGHT: "right",
   DOWN_RIGHT: "down-right",
   LEFT_UP: "left-up",
   DOWN_LEFT: "down-left",
