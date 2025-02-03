@@ -66,6 +66,7 @@ const animationConfig = {
     ],
     hover: "default-animation-card-hover",
     pathClass: "default-animation-path",
+    scaleFactor: 1.85,
     time: { group: 3000, delay: 1000 },
 
     functions: {

@@ -2,12 +2,12 @@ import { generatePath } from "./pathGenerator.js";
 import { getAnimation, getGrid } from "./data/animationData.js";
 
 // Values needed by this component to run smoothly
-let cellList, functions, container, time, hover;
+let cellList, functions, container, time, hover, scaleFactor;
 
 // Function which initializes all the data to be needed by this component
 export const initializeAnimator = () => {
   ({ cellList } = getGrid());
-  ({ container, hover, time, functions } = getAnimation());
+  ({ container, hover, scaleFactor, time, functions } = getAnimation());
 };
 
 // This function creates a path for the animtion
@@ -18,8 +18,8 @@ const createPath = (fromCell, toCell, direction) => {
   // Creating the Path
   const path = document.createElementNS("http://www.w3.org/2000/svg", "path");
   path.setAttribute("d", pathData);
-  path.style.strokeDasharray = path.getTotalLength() * 2;
-  path.style.strokeDashoffset = path.getTotalLength() * 2;
+  path.style.strokeDasharray = path.getTotalLength() * scaleFactor;
+  path.style.strokeDashoffset = path.getTotalLength() * scaleFactor;
   functions.drawPath(path);
 
   return path;
