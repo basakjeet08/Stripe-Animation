@@ -5,7 +5,7 @@ import { strokeStyles } from "../decorations/strokeStylesData.js";
 // This is the data store which stores all the data
 const animationConfig = {
   grid: {
-    container: document.querySelector(".animation-container"),
+    container: document.querySelector(".default-animation-container"),
     layout: [
       [false, false, true, false, false, false],
       [true, false, false, true, true, false],
@@ -15,7 +15,7 @@ const animationConfig = {
       [false, true, false, false, true, true],
     ],
     cellList: [],
-    animationCard: "animation-card",
+    animationCard: "default-animation-card",
     functions: {
       drawCellElement: (isActiveChild, activeCount) => {
         const cell = document.createElement("div");
@@ -31,7 +31,7 @@ const animationConfig = {
   },
 
   animation: {
-    container: document.querySelector(".svg-container"),
+    container: document.querySelector(".default-svg-container"),
     groupList: [
       [
         { start: 14, end: 6, direction: direction.UP_LEFT },
@@ -64,8 +64,8 @@ const animationConfig = {
         { start: 6, end: 9, direction: direction.STRAIGHT },
       ],
     ],
-    hover: "animation-card-hover",
-    pathClass: "animation-path",
+    hover: "default-animation-card-hover",
+    pathClass: "default-animation-path",
     time: { group: 3000, delay: 1000 },
 
     functions: {

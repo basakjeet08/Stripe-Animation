@@ -5,7 +5,7 @@
   --border-radius: 12px;
 }
 
-.animation-container {
+.default-animation-container {
   position: relative;
   height: 500px;
   width: 500px;
@@ -17,7 +17,7 @@
   gap: 16px;
 }
 
-.animation-card {
+.default-animation-card {
   display: flex;
   flex-direction: column;
   align-items: center;
@@ -27,14 +27,14 @@
   border: var(--border-width) solid var(--border-color);
 }
 
-.animation-card:hover,
-.animation-card-hover {
+.default-animation-card:hover,
+.default-animation-card-hover {
   transform: scale(var(--hover-scale));
   background-color: var(--card-color);
   border-color: transparent;
 }
 
-.shape {
+.default-shape {
   height: 32px;
   width: 32px;
   fill: none;
@@ -45,33 +45,33 @@
   border: none;
 }
 
-.animation-card-hover > .shape,
-.animation-card:hover > .shape {
+.default-animation-card-hover > .default-shape,
+.default-animation-card:hover > .default-shape {
   transform: scale(var(--shape-scale));
   stroke: none;
   fill: var(--hover-fill);
 }
 
-.animation-card:nth-child(6n + 1) > .shape {
+.default-animation-card:nth-child(6n + 1) > .default-shape {
   --hover-fill: lightseagreen;
 }
 
-.animation-card:nth-child(6n + 2) > .shape {
+.default-animation-card:nth-child(6n + 2) > .default-shape {
   --hover-fill: lightgreen;
 }
 
-.animation-card:nth-child(6n + 3) > .shape {
+.default-animation-card:nth-child(6n + 3) > .default-shape {
   --hover-fill: lightsalmon;
 }
 
-.animation-card:nth-child(6n + 4) > .shape {
+.default-animation-card:nth-child(6n + 4) > .default-shape {
   --hover-fill: lightpink;
 }
 
-.animation-card:nth-child(6n + 5) > .shape {
+.default-animation-card:nth-child(6n + 5) > .default-shape {
   --hover-fill: lightcoral;
 }
 
-.animation-card:nth-child(6n + 6) > .shape {
+.default-animation-card:nth-child(6n + 6) > .default-shape {
   --hover-fill: lightslategray;
 }
