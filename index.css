@@ -1,0 +1,27 @@
+@import "./styles/grid.css";
+@import "./styles/animationStyles.css";
+
+:root {
+  --background: #1c1f22;
+  --onBackground: whitesmoke;
+  --card-color: #282b2e;
+  --border-color: #494848;
+}
+
+* {
+  padding: 0;
+  margin: 0;
+  box-sizing: border-box;
+  transition: all 0.5s;
+}
+
+body {
+  height: 100vh;
+
+  display: flex;
+  align-items: center;
+  justify-content: center;
+
+  background: var(--background);
+  color: var(--onBackground);
+}

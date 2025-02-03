@@ -1,0 +1,77 @@
+:root {
+  --hover-scale: 1.2;
+  --shape-scale: 0.7;
+  --border-width: 1px;
+  --border-radius: 12px;
+}
+
+.container {
+  position: relative;
+  height: 500px;
+  width: 500px;
+
+  display: grid;
+  grid-template-columns: repeat(6, 1fr);
+  grid-template-rows: repeat(6, 1fr);
+
+  gap: 16px;
+}
+
+.card {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+
+  border-radius: var(--border-radius);
+  border: var(--border-width) solid var(--border-color);
+}
+
+.card:hover,
+.card-hover {
+  transform: scale(var(--hover-scale));
+  background-color: var(--card-color);
+  border-color: transparent;
+}
+
+.shape {
+  height: 32px;
+  width: 32px;
+  fill: none;
+
+  stroke: var(--border-color);
+  stroke-width: 1;
+
+  border: none;
+}
+
+.card-hover > .shape,
+.card:hover > .shape {
+  transform: scale(var(--shape-scale));
+  stroke: none;
+  fill: var(--hover-fill);
+}
+
+.card:nth-child(6n + 1) > .shape {
+  --hover-fill: lightseagreen;
+}
+
+.card:nth-child(6n + 2) > .shape {
+  --hover-fill: lightgreen;
+}
+
+.card:nth-child(6n + 3) > .shape {
+  --hover-fill: lightsalmon;
+}
+
+.card:nth-child(6n + 4) > .shape {
+  --hover-fill: lightpink;
+}
+
+.card:nth-child(6n + 5) > .shape {
+  --hover-fill: lightcoral;
+}
+
+.card:nth-child(6n + 6) > .shape {
+  --hover-fill: lightslategray;
+}

@@ -19,26 +19,6 @@ const layout = [
   [false, true, false, false, true, true],
 ];
 
-// Card Names for the cards
-const cardNames = [
-  "Scholar - 0",
-  "Inbox - 1",
-  "Battery - 2",
-  "Notif - 3",
-  "Lab - 4",
-  "Light - 5",
-  "Book - 6",
-  "Bookmark - 7",
-  "Job - 8",
-  "Spider - 9",
-  "Chart - 10",
-  "Chat - 11",
-  "Chat - 12",
-  "Database - 13",
-  "Todo - 14",
-  "Code - 15",
-];
-
 // Styles for drawing the cell blocks in the grid
 const drawCellElement = (isActiveChild, activeCount) => {
   const cell = document.createElement("div");
@@ -47,12 +27,6 @@ const drawCellElement = (isActiveChild, activeCount) => {
   // Giving Default Cell CSS and HTML
   cell.classList.add("card");
   cell.innerHTML = svgArray[activeCount];
-
-  // Creating new paragraph for the cell
-  let child = document.createElement("p");
-  child.classList.add("hidden-text");
-  child.textContent = cardNames[activeCount++];
-  cell.appendChild(child);
 
   return cell;
 };
