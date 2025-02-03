@@ -1,5 +1,5 @@
-@import "./styles/grid.css";
-@import "./styles/animationStyles.css";
+@import "./module/styles/grid.css";
+@import "./module/styles/animationStyles.css";
 
 :root {
   --background: #1c1f22;
