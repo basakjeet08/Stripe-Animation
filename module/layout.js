@@ -1,4 +1,4 @@
-import { getGrid, setAnimationConfig } from "./animationData.js";
+import { getGrid, setAnimationConfig } from "./data/animationData.js";
 
 // Variables that would be needed for this component to run smoothly
 let layout, container, functions;

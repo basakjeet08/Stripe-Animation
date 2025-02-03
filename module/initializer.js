@@ -1,4 +1,4 @@
-import { setAnimationConfig, getAnimation } from "./animationData.js";
+import { setAnimationConfig, getAnimation } from "./data/animationData.js";
 import { drawLayout, initializeLayout } from "./layout.js";
 import { animatePath, initializeAnimator } from "./animator.js";
 

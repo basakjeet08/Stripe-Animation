@@ -1,5 +1,5 @@
 import { generatePath } from "./pathGenerator.js";
-import { getAnimation, getGrid } from "./animationData.js";
+import { getAnimation, getGrid } from "./data/animationData.js";
 
 // Values needed by this component to run smoothly
 let cellList, functions, container, time, hover;

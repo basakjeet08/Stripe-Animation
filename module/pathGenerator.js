@@ -1,4 +1,4 @@
-import { direction } from "./direction.js";
+import { direction } from "./utils/direction.js";
 
 // Function which calculate the dimensions for the Rectangle or SVG
 const findData = (fromCell, toCell) => {

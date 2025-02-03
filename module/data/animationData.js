@@ -1,6 +1,6 @@
-import { direction } from "./direction.js";
-import { svgArray } from "./decorations/svgData.js";
-import { strokeStyles } from "./decorations/strokeStylesData.js";
+import { direction } from "../utils/direction.js";
+import { svgArray } from "../decorations/svgData.js";
+import { strokeStyles } from "../decorations/strokeStylesData.js";
 
 // This is the data store which stores all the data
 const animationConfig = {
